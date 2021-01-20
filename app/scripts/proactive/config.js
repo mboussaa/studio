@@ -287,6 +287,10 @@ if (!isWindows) {
     }
 }
 
+if (isPANodeInContainer && isWindows) {
+    forkEnvironment.addSystemEnvironmentVariable("DOCKER_HOST", "tcp://host.docker.internal:2375")
+}
+
 // Prepare container working directory
 cmd.add("-w")
 cmd.add(workspaceContainer)
